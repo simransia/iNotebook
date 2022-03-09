@@ -1,13 +1,16 @@
-import React, { useContext, useState } from 'react';
-import NoteContext from '../context/notes/noteContext'
+import React, { useContext, useState, useEffect } from 'react';
+import NoteContext from '../context/notes/noteContext';
+import { useNavigate } from 'react-router-dom';
 
 function AddNote(props) {
 
     const context = useContext(NoteContext);
-    const {addNote} = context;
+    const {addNote, getNote} = context;
 
     const [note, setnote] = useState({ title: "", description: "", tag: "Todo" })
 
+    const navigate = useNavigate();
+    
     const onchange=(e)=>{
         setnote({ ...note, [e.target.name]:e.target.value})
        
@@ -19,6 +22,17 @@ function AddNote(props) {
         setnote({  title: "", description: "", tag: ""})
         props.showAlert("Note added successfully", "success")
     }
+
+    useEffect(() => {
+        if (localStorage.getItem('token')) {
+            getNote()
+        } else {
+            navigate('/login')
+
+        }
+        // eslint-disable-next-line
+
+    }, [])
 
     return (
         <div>
