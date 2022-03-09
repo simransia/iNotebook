@@ -37,8 +37,8 @@ function AddNote(props) {
     return (
         <div>
             <div className='my-4'>
-                <div>
-                    <h3>Add A New Note:</h3>
+                <div className="text-center">
+                    <h3>✍🏻 Add A New Note:</h3>
                 </div>
                 <div className="mb-3 my-4">
                     <label htmlFor="tag" className="form-label">Tag</label>

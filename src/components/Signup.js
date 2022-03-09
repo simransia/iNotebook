@@ -12,7 +12,7 @@ function SignUp(props) {
 
     const handleClick = async (e) => {
         e.preventDefault();
-        
+
         const { email, name, password } = credentials;
         const response = await fetch("http://localhost:5000/api/auth/createuser", {
             method: 'POST',
@@ -37,30 +37,39 @@ function SignUp(props) {
 
 
     return (
-        <form onSubmit={handleClick}>
-
-            <div className="container my-5">
-                <div className="mb-3 ">
-                    <label htmlFor="email" className="form-label">Email address</label>
-                    <input type="email" className="form-control" onChange={onchange} id="email" name="email" placeholder="name@example.com" required/>
-                </div>
-                <div className="mb-3 ">
-                    <label htmlFor="name" className="form-label">Name</label>
-                    <input type="text" className="form-control" onChange={onchange} id="name" name="name" />
-                </div>
-                <div className="mb-3 ">
-                    <label htmlFor="password" className="form-label">Password</label>
-                    <input type="password" className="form-control" onChange={onchange} id="password"  name="password" minLength={5} required />
-                </div>
-                <div className="mb-3 ">
-                    <label htmlFor="cpassword" className="form-label">Confirm Password</label>
-                    <input type="password" className="form-control" onChange={onchange} id="cpassword" name="cpassword" minLength={5} required />
-                </div>
-            </div>
+        <>
             <div className='text-center'>
-                <button type="submit" className='btn btn-primary' >SignUp</button>
+                <h1>iNOTEBOOK</h1>
+                <p><b>Your notes on cloud ☁️</b></p>
             </div>
-        </form>
+
+            <form onSubmit={handleClick}>
+            
+
+                <div className="container my-5">
+                <p className="text-center my-3"><i>New to iNotebook? 👉🏻Create a new account here! </i></p>
+                    <div className="mb-3 ">
+                        <label htmlFor="email" className="form-label">Email address</label>
+                        <input type="email" className="form-control" onChange={onchange} id="email" name="email" placeholder="name@example.com" required />
+                    </div>
+                    <div className="mb-3 ">
+                        <label htmlFor="name" className="form-label">Name</label>
+                        <input type="text" className="form-control" onChange={onchange} id="name" name="name" />
+                    </div>
+                    <div className="mb-3 ">
+                        <label htmlFor="password" className="form-label">Password</label>
+                        <input type="password" className="form-control" onChange={onchange} id="password" name="password" minLength={5} required />
+                    </div>
+                    <div className="mb-3 ">
+                        <label htmlFor="cpassword" className="form-label">Confirm Password</label>
+                        <input type="password" className="form-control" onChange={onchange} id="cpassword" name="cpassword" minLength={5} required />
+                    </div>
+                </div>
+                <div className='text-center'>
+                    <button type="submit" className='btn btn-primary' >SignUp</button>
+                </div>
+            </form>
+        </>
     )
 }
 

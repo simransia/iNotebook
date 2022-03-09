@@ -30,11 +30,8 @@ function App() {
         <BrowserRouter>
           <Navbar />
           <Alert alert={alert} />
-          <div className='text-center my-4'>
-            <h1>iNOTEBOOK</h1>
-            <p><b>Your notes on cloud ☁️</b></p>
-          </div>
-          <div className='container'>
+     
+          <div className='container my-5'>
             <Routes>
               <Route path="/notes" element={<Notes showAlert={showAlert} />} />
               <Route path="/" element={<AddNote showAlert={showAlert} />} />

@@ -46,7 +46,7 @@ function Notes(props) {
         <>
             <div className='my-5' >
                 <div >
-                    <h3> Your Notes:</h3>
+                    <h3>🧾 Your Notes:</h3>
                 </div>
 
             </div>
