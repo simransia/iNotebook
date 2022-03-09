@@ -11,11 +11,6 @@ function SignUp(props) {
 
         const { password, cpassword } = credentials;
         
-        if (cpassword.value === password.value) {
-            cpassword.setCustomValidity('');
-          } else {
-            cpassword.setCustomValidity('Passwords do not match');
-          }
     }
 
     const handleClick = async (e) => {
@@ -75,7 +70,7 @@ function SignUp(props) {
                     </div>
                 </div>
                 <div className='text-center'>
-                    <button type="submit" style={{cursor:"pointer"}} className='btn btn-primary' >SignUp</button>
+                    <button type="submit" className='btn btn-primary' >SignUp</button>
                 </div>
             </form>
         </>
