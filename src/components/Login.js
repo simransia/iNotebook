@@ -53,7 +53,7 @@ function Login(props) {
                 </div>
             </div>
             <div className='text-center'>
-                <button className='btn btn-primary' onClick={handleClick}>Login</button>
+                <button className='btn btn-primary' style={{cursor:"pointer"}} onClick={handleClick}>Login</button>
             </div>
         </div>
     )

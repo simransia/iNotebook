@@ -8,12 +8,21 @@ function SignUp(props) {
 
     const onchange = (e) => {
         setCredentials({ ...credentials, [e.target.name]: e.target.value })
+
+        const { password, cpassword } = credentials;
+        
+        if (cpassword.value === password.value) {
+            cpassword.setCustomValidity('');
+          } else {
+            cpassword.setCustomValidity('Passwords do not match');
+          }
     }
 
     const handleClick = async (e) => {
         e.preventDefault();
-
         const { email, name, password } = credentials;
+
+      
         const response = await fetch("http://localhost:5000/api/auth/createuser", {
             method: 'POST',
             headers: {
@@ -61,12 +70,12 @@ function SignUp(props) {
                         <input type="password" className="form-control" onChange={onchange} id="password" name="password" minLength={5} required />
                     </div>
                     <div className="mb-3 ">
-                        <label htmlFor="cpassword" className="form-label">Confirm Password</label>
+                        <label htmlFor="cpassword" className="form-label">cpassword Password</label>
                         <input type="password" className="form-control" onChange={onchange} id="cpassword" name="cpassword" minLength={5} required />
                     </div>
                 </div>
                 <div className='text-center'>
-                    <button type="submit" className='btn btn-primary' >SignUp</button>
+                    <button type="submit" style={{cursor:"pointer"}} className='btn btn-primary' >SignUp</button>
                 </div>
             </form>
         </>
