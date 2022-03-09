@@ -10,7 +10,9 @@ function SignUp(props) {
         setCredentials({ ...credentials, [e.target.name]: e.target.value })
     }
 
-    const handleClick = async () => {
+    const handleClick = async (e) => {
+        e.preventDefault();
+        
         const { email, name, password } = credentials;
         const response = await fetch("http://localhost:5000/api/auth/createuser", {
             method: 'POST',
@@ -23,8 +25,8 @@ function SignUp(props) {
         const json = await response.json();
         console.log(json)
         if (json.success) {
-            localStorage.setItem('token', json.authtoken)
-            history("/")
+            localStorage.setItem('token', json.authtoken);
+            history("/");
             props.showAlert("Account created successfully", "success")
         } else {
             props.showAlert("Invalid Details", "danger")
@@ -56,7 +58,7 @@ function SignUp(props) {
                 </div>
             </div>
             <div className='text-center'>
-                <button className='btn btn-primary' >SignUp</button>
+                <button type="submit" className='btn btn-primary' >SignUp</button>
             </div>
         </form>
     )
