@@ -66,6 +66,8 @@ function AddNote(props) {
              
             </div>
 
+           <a href="/notes"><p className='text-center'>View your notes &gt;</p></a>
+
         </div>
     )
 }
