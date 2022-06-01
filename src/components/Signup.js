@@ -16,7 +16,6 @@ function SignUp(props) {
     const handleClick = async (e) => {
         e.preventDefault();
         const { email, name, password } = credentials;
-
       
         const response = await fetch("http://localhost:5000/api/auth/createuser", {
             method: 'POST',
@@ -27,13 +26,22 @@ function SignUp(props) {
 
         });
         const json = await response.json();
-        console.log(json)
+        console.log(json);
+
+        let pass = document.querySelector('#password').value;
+        let cpass= document.querySelector('#cpassword').value;
+
         if (json.success) {
+
+            if(pass==cpass){ 
             localStorage.setItem('token', json.authtoken);
             history("/");
-            props.showAlert("Account created successfully", "success")
+            props.showAlert("Account created successfully", "success");
+            }else{
+                props.showAlert("Passwords didn't match! Try again.", "danger");
+            }
         } else {
-            props.showAlert("Invalid Details", "danger")
+            props.showAlert("Invalid Details! "+ json.error , "danger")
 
         }
 
@@ -65,13 +73,14 @@ function SignUp(props) {
                         <input type="password" className="form-control" onChange={onchange} id="password" name="password" minLength={5} required />
                     </div>
                     <div className="mb-3 ">
-                        <label htmlFor="cpassword" className="form-label">cpassword Password</label>
+                        <label htmlFor="cpassword" className="form-label">Confirm Password</label>
                         <input type="password" className="form-control" onChange={onchange} id="cpassword" name="cpassword" minLength={5} required />
                     </div>
                 </div>
                 <div className='text-center'>
                     <button type="submit" className='btn btn-primary' >SignUp</button>
                 </div>
+                <p className='text-center last-para'>Already have an account? <a href="/login">Login-&gt;</a> </p>
             </form>
         </>
     )

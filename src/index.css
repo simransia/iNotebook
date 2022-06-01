@@ -26,3 +26,8 @@ i{
 button{
   cursor:pointer;
 }
+
+.last-para{
+  color:blue;
+  font-size: 12px;;
+}

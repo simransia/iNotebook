@@ -55,8 +55,9 @@ function Login(props) {
             <div className='text-center'>
                 <button className='btn btn-primary' onClick={handleClick}>Login</button>
             </div>
+            <p className='text-center last-para'>Don't have an account? <a href="/signup">SignUp-&gt;</a> </p>
         </div>
     )
 }
 
-export default Login
+export default Login;
