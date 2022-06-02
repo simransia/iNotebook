@@ -80,6 +80,7 @@ function SignUp(props) {
                 <div className='text-center'>
                     <button type="submit" className='btn btn-primary' >SignUp</button>
                 </div>
+                <br/>
                 <p className='text-center last-para'>Already have an account? <a href="/login">Login-&gt;</a> </p>
             </form>
         </>
