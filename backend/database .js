@@ -1,10 +1,20 @@
 const mongoose = require('mongoose');
-const mongoURI= 'mongodb://localhost:27017/inotebook?readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false';
 
-const connectToMongo = ()=> {
-    mongoose.connect(mongoURI, ()=>{
-        console.log("connected to mongoo");
-    })
+const connectToMongo = async ()=> {
+    try{ 
+    const conn = await mongoose.connect(process.env.MONGO_URL, {
+        useNewUrlParser:true,
+        useUnifiedTopology:true,
+     
+    });
+
+    console.log(`MongoDB Connected: ${conn.connection.host}`)
+
+     }catch(error){
+         console.error(`Error: ${error.message}`);
+         process.exit();
+
+     }
 }
 
 module.exports= connectToMongo;
