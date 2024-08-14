@@ -10,13 +10,7 @@ dotenv.config();
 connectToMongo();
 
 const app = express();
-
-const corsOptions = {
-  origin: "*", // replace with your actual frontend URL
-  optionsSuccessStatus: 200,
-};
-
-app.use(cors(corsOptions));
+app.use(cors());
 
 app.use(express.json()); // to accept json data
 
