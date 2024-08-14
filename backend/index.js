@@ -12,7 +12,7 @@ connectToMongo();
 const app = express();
 
 const corsOptions = {
-  origin: "https://inotebook-2mvv.onrender.com", // replace with your actual frontend URL
+  origin: "*", // replace with your actual frontend URL
   optionsSuccessStatus: 200,
 };
 
